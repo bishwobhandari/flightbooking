@@ -1,4 +1,4 @@
-package com.diyo.flightbooking;
+package com.diyo.flightbooking.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
