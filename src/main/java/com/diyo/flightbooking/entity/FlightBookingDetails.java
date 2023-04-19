@@ -1,9 +1,6 @@
 package com.diyo.flightbooking.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,4 +14,8 @@ public class FlightBookingDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String bookDate;
+    @OneToMany(mappedBy = "id")
+    private Passenger passenger;
+    @OneToMany(mappedBy = "id")
+    private Payment payment;
 }
