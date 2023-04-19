@@ -19,4 +19,5 @@ public class FlightBookingController {
     public ResponseEntity<FlightBookingService> bookingDetails(@RequestBody FlightBooking flightBooking) {
         return new ResponseEntity (flightBookingService.flightBookingDetails(flightBooking), HttpStatus.OK);
     }
+
 }
