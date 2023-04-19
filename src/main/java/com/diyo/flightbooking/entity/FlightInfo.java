@@ -12,11 +12,14 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table
-public class FlightBooking {
+public class FlightInfo {
     @Id
     @GeneratedValue ( strategy = GenerationType.AUTO)
     private long id;
-    private String book_date;
-    private String flight_date;
+    private String source;
+    private String destination;
+    private int duration;
+    private String routeId;
+    private String flightTime;
 
 }
