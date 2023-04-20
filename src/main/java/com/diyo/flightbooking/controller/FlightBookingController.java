@@ -17,6 +17,14 @@ public class FlightBookingController {
     public ResponseEntity<FlightBookingService> bookingDetails(@RequestBody FlightInfo flightInfo) {
         return new ResponseEntity (flightBookingService.flightBookingDetails(flightInfo), HttpStatus.OK);
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String>deleteFlightBookingDetailById(@PathVariable("id") Long id){
+        String response = flightBookingService.deleteFlightBookingDetailById(id);
+        if (response.equals("Bad Request")) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 
 
