@@ -11,7 +11,8 @@ import lombok.Setter;
 
 @Entity
 @Getter
-@Setter@AllArgsConstructor
+@Setter
+@AllArgsConstructor
 @NoArgsConstructor
 public class Passenger {
     @Id
