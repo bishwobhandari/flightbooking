@@ -18,4 +18,6 @@ public class FlightBookingController {
         return new ResponseEntity (flightBookingService.flightBookingDetails(flightInfo), HttpStatus.OK);
     }
 
+
+
 }
