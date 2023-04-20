@@ -1,11 +1,14 @@
 package com.diyo.flightbooking.controller;
 
+import com.diyo.flightbooking.entity.FlightBookingDetails;
 import com.diyo.flightbooking.entity.FlightInfo;
 import com.diyo.flightbooking.service.FlightBookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/flightBooking")
@@ -25,5 +28,9 @@ public class FlightBookingController {
         }
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
+    @GetMapping("/{id}")
+    public Optional<FlightBookingDetails> getFlightBookingDetailById(@PathVariable("id") Long id){
+        return flightBookingService.getFlightBookingDetailById(id);
+    }
+    
 }
