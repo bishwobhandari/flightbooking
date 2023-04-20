@@ -1,6 +1,6 @@
 package com.diyo.flightbooking.controller;
 
-import com.diyo.flightbooking.entity.FlightInfo;
+import com.diyo.flightbooking.entity.FlightInformation;
 import com.diyo.flightbooking.service.FlightBookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,8 +14,8 @@ public class FlightBookingController {
     private FlightBookingService flightBookingService;
 
     @PostMapping
-    public ResponseEntity<FlightBookingService> bookingDetails(@RequestBody FlightInfo flightInfo) {
-        return new ResponseEntity (flightBookingService.flightBookingDetails(flightInfo), HttpStatus.OK);
+    public ResponseEntity<FlightBookingService> bookingDetails(@RequestBody FlightInformation flightInformation) {
+        return new ResponseEntity (flightBookingService.flightBookingDetails(flightInformation), HttpStatus.OK);
     }
 
 }

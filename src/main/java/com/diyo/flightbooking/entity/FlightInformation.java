@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table
-public class FlightInfo {
+public class FlightInformation {
     @Id
     @GeneratedValue ( strategy = GenerationType.AUTO)
     private long id;
