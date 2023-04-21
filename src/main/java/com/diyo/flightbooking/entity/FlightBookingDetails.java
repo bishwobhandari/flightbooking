@@ -14,8 +14,19 @@ public class FlightBookingDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String bookDate;
-    @OneToMany(mappedBy = "id")
+
+    //one passenger can book only one flight for now
+    @OneToOne
     private Passenger passenger;
-    @OneToMany(mappedBy = "id")
+
+
+    //many flights can be booked by same payment method
+    @ManyToOne
     private Payment payment;
+
+
+    //many flightInfo can bbe booked for same route by different passengers
+    @ManyToOne
+    private FlightInformation flightInformation;
+
 }

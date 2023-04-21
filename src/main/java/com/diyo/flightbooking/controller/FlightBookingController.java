@@ -1,6 +1,6 @@
 package com.diyo.flightbooking.controller;
 
-import com.diyo.flightbooking.entity.FlightInfo;
+import com.diyo.flightbooking.entity.FlightBookingDetails;
 import com.diyo.flightbooking.service.FlightBookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,8 +16,8 @@ public class FlightBookingController {
     private FlightBookingService flightBookingService;
 
     @PostMapping
-    public ResponseEntity<FlightBookingService> bookingDetails(@RequestBody FlightInfo flightInfo) {
-        return new ResponseEntity (flightBookingService.flightBookingDetails(flightInfo), HttpStatus.OK);
+    public ResponseEntity<FlightBookingDetails> bookingDetails(@RequestBody FlightBookingDetails flightBookingDetails) {
+        return new ResponseEntity (flightBookingService.flightBookingDetails(flightBookingDetails), HttpStatus.OK);
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<String>deleteFlightBookingDetailById(@PathVariable("id") Long id){
@@ -27,8 +27,13 @@ public class FlightBookingController {
         }
         return new ResponseEntity<>(HttpStatus.OK);
     }
-@GetMapping("/{id}")
-    public ResponseEntity
-    public Optional<String> getFlightBookingDetailById(@PathVariable("id") Long id){
-        return FlightBookingService.getFlightBookingDetailById(id);
+
+    @GetMapping("get/{id}")
+    public Optional<FlightBookingDetails> findById(@PathVariable("id") Long id){
+        return flightBookingService.getFlightBookingDetailById(id);
+    }
+    @PutMapping("put/{id}")
+    public ResponseEntity<FlightBookingDetails> bookingDetailsUpdate(@PathVariable("id") Long id,@RequestBody FlightBookingDetails flightBookingDetails) {
+        return new ResponseEntity (flightBookingService.flightBookingDetails(id, flightBookingDetails), HttpStatus.OK);
+    }
 }
