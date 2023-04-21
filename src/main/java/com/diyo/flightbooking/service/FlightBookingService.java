@@ -1,9 +1,8 @@
 package com.diyo.flightbooking.service;
 
-import com.diyo.flightbooking.entity.FlightBooking;
 import com.diyo.flightbooking.entity.FlightBookingDetails;
 import com.diyo.flightbooking.repository.FlightBookingRepository;
-import com.diyo.flightbooking.repository.FlightDetailsInformationRepository;
+import com.diyo.flightbooking.repository.FLightInformationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
@@ -12,7 +11,7 @@ import java.util.Optional;
 public class FlightBookingService {
     @Autowired
     private FlightBookingRepository flightBookingRepository;
-    private FlightDetailsInformationRepository flightDetailsInformationRepository;
+    private FLightInformationRepository fLightInformationRepository;
 
     public String flightBookingDetails(FlightBookingDetails flightBookingDetails) {
         flightBookingRepository.save(flightBookingDetails);
@@ -29,17 +28,17 @@ public class FlightBookingService {
 
     }
     public Optional<FlightBookingDetails> getFlightBookingDetailById(Long id){
-        boolean exists = flightDetailsInformationRepository.existsById(id);
+        boolean exists = flightBookingRepository.existsById(id);
         if(exists){
-            return flightDetailsInformationRepository.findById(id);
+            return flightBookingRepository.findById(id);
         }
         return null;
     }
 
     public String deleteFlightBookingDetailById(Long id){
-        boolean exists=flightDetailsInformationRepository.existsById(id);
+        boolean exists=flightBookingRepository.existsById(id);
         if(exists){
-            flightDetailsInformationRepository.deleteById(id);
+            flightBookingRepository.deleteById(id);
             return "Deleted";
         }
         return "Bad Request";
