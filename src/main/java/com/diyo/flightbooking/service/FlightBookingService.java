@@ -6,12 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FlightBookingService {
     @Autowired
     private FlightBookingRepo flightBookingRepo;
     private FlightDetailsInformationRepository flightDetailsInformationRepository;
+
+    public static Optional<String> getFlightBookingDetailById(Long id) {
+    return flightBookingRepo
+            .findById(id);
+    }
 
     public String flightBookingDetails(FlightBooking flightBooking) {
         flightBookingRepo.save(flightBooking);

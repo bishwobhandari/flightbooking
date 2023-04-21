@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/flightBooking")
 public class FlightBookingController {
@@ -25,5 +27,8 @@ public class FlightBookingController {
         }
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
+@GetMapping("/{id}")
+    public ResponseEntity
+    public Optional<String> getFlightBookingDetailById(@PathVariable("id") Long id){
+        return FlightBookingService.getFlightBookingDetailById(id);
 }
