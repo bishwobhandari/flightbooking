@@ -11,7 +11,7 @@ import java.util.Optional;
 public class FlightBookingService {
     @Autowired
     private FlightBookingRepository flightBookingRepository;
-    private FLightInformationRepository fLightInformationRepository;
+
 
     public String flightBookingDetails(FlightBookingDetails flightBookingDetails) {
         flightBookingRepository.save(flightBookingDetails);

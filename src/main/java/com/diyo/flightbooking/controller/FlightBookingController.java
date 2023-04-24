@@ -12,7 +12,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/flightBooking")
 public class FlightBookingController {
-    @Autowired
+   // @Autowired
     private FlightBookingService flightBookingService;
 
     @PostMapping
@@ -25,6 +25,7 @@ public class FlightBookingController {
         if (response.equals("Bad Request")) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+        
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
